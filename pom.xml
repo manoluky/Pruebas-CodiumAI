@@ -192,6 +192,11 @@
                 <version>3.0.0</version>
             </plugin>
             <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
+            </plugin>
+            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.9</version>
@@ -244,6 +249,7 @@
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
         <org.projectlombok.version>1.18.26</org.projectlombok.version>
         <org.mockito.version>3.12.4</org.mockito.version>
+        <sonar.host.url>http://45.56.121.68:9000</sonar.host.url>
     </properties>
 
 </project>
