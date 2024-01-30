@@ -254,6 +254,7 @@
         <org.projectlombok.version>1.18.26</org.projectlombok.version>
         <org.mockito.version>3.12.4</org.mockito.version>
         <sonar.host.url>http://45.56.121.68:9000</sonar.host.url>
+        <sonar.login>squ_5e7652a51637ff8bb2de5024d24536425cc1b82f</sonar.login>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
