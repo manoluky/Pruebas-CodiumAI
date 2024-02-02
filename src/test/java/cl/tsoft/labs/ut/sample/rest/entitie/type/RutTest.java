@@ -169,4 +169,37 @@ class RutTest {
         // Assert
         assertEquals(new Rut(1, '0'), result);
     }
+    @Test
+    public void test_convert_rut_with_digit_0_to_rut_object() {
+        // Arrange
+        RutConverter converter = new RutConverter();
+        String rutString = "12345678-0";
+
+        // Act
+        Rut result = converter.convertToEntityAttribute(rutString);
+
+        // Assert
+        assertEquals(new Rut(12345678, '0'), result);
+    }
+    @Test
+    public void test_convert_rut_with_digit_K_to_rut_object() {
+        // Arrange
+        RutConverter converter = new RutConverter();
+        String rutString = "12345678-K";
+
+        // Act
+        Rut result = converter.convertToEntityAttribute(rutString);
+
+        // Assert
+        assertEquals(new Rut(12345678, 'K'), result);
+    }
+    @Test
+    public void test_convert_invalid_rut_string_to_rut_object() {
+        // Arrange
+        RutConverter converter = new RutConverter();
+        String rutString = "12345678-A";
+
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> converter.convertToEntityAttribute(rutString));
+    }
  }
