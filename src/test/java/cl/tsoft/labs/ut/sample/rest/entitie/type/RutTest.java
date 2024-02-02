@@ -145,5 +145,28 @@ class RutTest {
         // Assert
         assertEquals(new Rut(12345678, 'K'), result);
     }
+    @Test
+    public void test_convert_string_representation_with_leading_zeros() {
+        // Arrange
+        RutConverter converter = new RutConverter();
+        String dbData = "00001234-5";
 
+        // Act
+        Rut result = converter.convertToEntityAttribute(dbData);
+
+        // Assert
+        assertEquals(new Rut(1234, '5'), result);
+    }
+    @Test
+    public void test_convert_string_representation_with_minimum_number() {
+        // Arrange
+        RutConverter converter = new RutConverter();
+        String dbData = "1-0";
+
+        // Act
+        Rut result = converter.convertToEntityAttribute(dbData);
+
+        // Assert
+        assertEquals(new Rut(1, '0'), result);
+    }
  }
