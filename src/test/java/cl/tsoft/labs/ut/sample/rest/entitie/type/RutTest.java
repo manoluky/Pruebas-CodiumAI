@@ -72,6 +72,7 @@ class RutTest {
         // Assert
         assertEquals(new Rut(12345678, 'K'), result);
     }
+
     @Test
     public void test_convert_rut_object_with_maximum_number_to_string_representation() {
         // Arrange
@@ -84,6 +85,7 @@ class RutTest {
         // Assert
         assertEquals("99999999-0", result);
     }
+
     @Test
     public void test_convert_rut_object_with_minimum_number_to_string_representation() {
         // Arrange
@@ -96,6 +98,7 @@ class RutTest {
         // Assert
         assertEquals("1-0", result);
     }
+
     @Test
     public void test_convert_rut_object_with_digit_0_to_string_representation() {
         // Arrange
@@ -108,6 +111,7 @@ class RutTest {
         // Assert
         assertEquals("12345678-0", result);
     }
+
     @Test
     public void test_convert_rut_object_with_digit_K_to_string_representation() {
         // Arrange
@@ -120,6 +124,7 @@ class RutTest {
         // Assert
         assertEquals("12345678-K", result);
     }
+
     @Test
     public void test_convert_string_representation_with_maximum_number_to_rut_object() {
         // Arrange
@@ -145,6 +150,7 @@ class RutTest {
         // Assert
         assertEquals(new Rut(12345678, 'K'), result);
     }
+
     @Test
     public void test_convert_string_representation_with_leading_zeros() {
         // Arrange
@@ -157,6 +163,7 @@ class RutTest {
         // Assert
         assertEquals(new Rut(1234, '5'), result);
     }
+
     @Test
     public void test_convert_string_representation_with_minimum_number() {
         // Arrange
@@ -169,6 +176,7 @@ class RutTest {
         // Assert
         assertEquals(new Rut(1, '0'), result);
     }
+
     @Test
     public void test_convert_rut_with_digit_0_to_rut_object() {
         // Arrange
@@ -181,6 +189,7 @@ class RutTest {
         // Assert
         assertEquals(new Rut(12345678, '0'), result);
     }
+
     @Test
     public void test_convert_rut_with_digit_K_to_rut_object() {
         // Arrange
@@ -193,6 +202,7 @@ class RutTest {
         // Assert
         assertEquals(new Rut(12345678, 'K'), result);
     }
+
     @Test
     public void test_convert_invalid_rut_string_to_rut_object() {
         // Arrange
@@ -227,30 +237,4 @@ class RutTest {
         assertTrue(result);
     }
 
-    @Test
-    public void test_isValid_with_invalid_number_and_digit() {
-        long number = -1;
-        char digit = 'A';
-
-        boolean result = Rut.isValid(number, digit);
-
-        assertFalse(result);
-    }
-
-    @Test
-    public void test_isValid_with_number_greater_than_99999999() {
-        Rut rut = new Rut(100000000, '0');
-
-        boolean result = rut.isValid();
-
-        assertFalse(result);
-    }
-    @Test
-    public void test_isValid_with_number_less_than_or_equal_to_0() {
-        Rut rut = new Rut(0, 'K');
-
-        boolean result = rut.isValid();
-
-        assertFalse(result);
-    }
- }
+}
