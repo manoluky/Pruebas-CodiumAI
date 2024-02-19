@@ -238,4 +238,29 @@ class RutTest {
 
         assertFalse(result);
     }
+
+    @Test
+    public void test_valid_rut_creation() {
+        Rut rut = new Rut(12345678, 'K');
+        assertEquals(12345678, rut.getNumber());
+        assertEquals('K', rut.getDigit());
+    }
+    @Test
+    public void test_invalid_rut_creation_large_number() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Rut(100000000, 'K');
+        });
+    }
+    @Test
+    public void test_invalid_rut_isValid() {
+        Rut rut = new Rut(12345678, '0');
+        assertFalse(rut.isValid());
+    }
+    @Test
+    public void test_invalid_rut_creation_negative_number() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Rut(-12345678, 'K');
+        });
+    }
+
 }
