@@ -202,4 +202,55 @@ class RutTest {
         // Act & Assert
         assertThrows(IllegalArgumentException.class, () -> converter.convertToEntityAttribute(rutString));
     }
+
+    @Test
+    public void test_create_rut_with_valid_number_and_digit() {
+        long number = 12345678;
+        char digit = 'K';
+
+        Rut rut = new Rut(number, digit);
+
+        assertEquals(number, rut.getNumber());
+        assertEquals(digit, rut.getDigit());
+    }
+
+    @Test
+    public void test_isValid_with_valid_number_and_lowercase_digit() {
+        // Arrange
+        long number = 12345678;
+        char digit = 'k';
+
+        // Act
+        boolean result = Rut.isValid(number, digit);
+
+        // Assert
+        assertTrue(result);
+    }
+
+    @Test
+    public void test_isValid_with_invalid_number_and_digit() {
+        long number = -1;
+        char digit = 'A';
+
+        boolean result = Rut.isValid(number, digit);
+
+        assertFalse(result);
+    }
+
+    @Test
+    public void test_isValid_with_number_greater_than_99999999() {
+        Rut rut = new Rut(100000000, '0');
+
+        boolean result = rut.isValid();
+
+        assertFalse(result);
+    }
+    @Test
+    public void test_isValid_with_number_less_than_or_equal_to_0() {
+        Rut rut = new Rut(0, 'K');
+
+        boolean result = rut.isValid();
+
+        assertFalse(result);
+    }
  }
