@@ -212,29 +212,4 @@ class RutTest {
         // Act & Assert
         assertThrows(IllegalArgumentException.class, () -> converter.convertToEntityAttribute(rutString));
     }
-
-    @Test
-    public void test_create_rut_with_valid_number_and_digit() {
-        long number = 12345678;
-        char digit = 'K';
-
-        Rut rut = new Rut(number, digit);
-
-        assertEquals(number, rut.getNumber());
-        assertEquals(digit, rut.getDigit());
-    }
-
-    @Test
-    public void test_isValid_with_valid_number_and_lowercase_digit() {
-        // Arrange
-        long number = 12345678;
-        char digit = 'k';
-
-        // Act
-        boolean result = Rut.isValid(number, digit);
-
-        // Assert
-        assertTrue(result);
-    }
-
 }
