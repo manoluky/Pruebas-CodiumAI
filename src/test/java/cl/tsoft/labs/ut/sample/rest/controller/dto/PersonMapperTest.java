@@ -92,4 +92,49 @@ public class PersonMapperTest {
         // Assert
         assertNull(personDto);
     }
+    @Test
+    public void test_null_rut_field() {
+        // Arrange
+        Person person = new Person();
+        person.setId(1L);
+        person.setRut(null);
+        person.setName("John");
+        person.setPaternalLastName("Doe");
+        person.setMaternalLastName("Smith");
+        person.setBirthDate(LocalDate.of(1990, 1, 1));
+        person.setHomeAddress("123 Main St");
+        person.setCellPhone("555-1234");
+        person.setMail("john.doe@example.com");
+
+        PersonMapperImpl mapper = new PersonMapperImpl();
+
+        // Act
+        PersonDto personDto = mapper.personToPersonDto(person);
+
+        // Assert
+        assertNull(personDto.getRut());
+    }
+    @Test
+    public void test_null_birthdate_field() {
+        // Arrange
+        Person person = new Person();
+        person.setId(1L);
+        person.setRut(new Rut(12345678, 'K'));
+        person.setName("John");
+        person.setPaternalLastName("Doe");
+        person.setMaternalLastName("Smith");
+        person.setBirthDate(null);
+        person.setHomeAddress("123 Main St");
+        person.setCellPhone("555-1234");
+        person.setMail("john.doe@example.com");
+
+        PersonMapperImpl mapper = new PersonMapperImpl();
+
+        // Act
+        PersonDto personDto = mapper.personToPersonDto(person);
+
+        // Assert
+        assertNull(personDto.getBirthDate());
+    }
+
 }
