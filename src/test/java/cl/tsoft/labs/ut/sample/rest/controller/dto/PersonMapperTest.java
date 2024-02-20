@@ -79,4 +79,17 @@ public class PersonMapperTest {
         // Assert
         assertEquals(person.getId(), personDto.getId());
     }
+    @Test
+    public void test_null_person_to_persondto() {
+        // Arrange
+        Person person = null;
+
+        PersonMapperImpl mapper = new PersonMapperImpl();
+
+        // Act
+        PersonDto personDto = mapper.personToPersonDto(person);
+
+        // Assert
+        assertNull(personDto);
+    }
 }
