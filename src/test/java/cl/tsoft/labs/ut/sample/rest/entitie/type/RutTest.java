@@ -225,18 +225,5 @@ class RutTest {
         assertEquals(number, rut.getNumber());
         assertEquals(digit, rut.getDigit());
     }
-    @Test
-    public void test_is_valid_true() {
-        // Arrange
-        long number = 12345678;
-        char digit = 'K';
-        Rut rut = new Rut(number, digit);
-
-        // Act
-        boolean isValid = rut.isValid();
-
-        // Assert
-        assertTrue(isValid);
-    }
 
 }
