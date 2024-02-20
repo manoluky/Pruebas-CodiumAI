@@ -204,4 +204,17 @@ public class PersonMapperTest {
         assertEquals(personDto.getCellPhone(), person.getCellPhone());
         assertEquals(personDto.getMail(), person.getMail());
     }
+
+    @Test
+    public void test_fullNameToName_length_0() {
+        // Arrange
+        PersonMapperImpl mapper = new PersonMapperImpl();
+        String fullName = "";
+
+        // Act
+        String result = mapper.fullNameToName(fullName);
+
+        // Assert
+        assertNull(result);
+    }
 }
