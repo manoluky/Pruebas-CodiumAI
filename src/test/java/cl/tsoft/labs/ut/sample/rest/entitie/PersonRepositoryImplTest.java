@@ -92,4 +92,28 @@ class PersonRepositoryImplTest {
         // Then
         assertNull(personByRut);
     }
+
+    @Test
+    public void test_initialize_person_object() {
+        Person person = new Person();
+
+        assertNull(person.getId());
+        assertNull(person.getRut());
+        assertNull(person.getName());
+        assertNull(person.getPaternalLastName());
+        assertNull(person.getMaternalLastName());
+        assertNull(person.getBirthDate());
+        assertNull(person.getHomeAddress());
+        assertNull(person.getCellPhone());
+        assertNull(person.getMail());
+    }
+    @Test
+    public void test_set_and_get_id_field() {
+        Person person = new Person();
+        Long id = 1L;
+        person.setId(id);
+
+        assertEquals(id, person.getId());
+    }
+
 }
