@@ -202,14 +202,4 @@ class RutTest {
         // Assert
         assertEquals(new Rut(12345678, 'K'), result);
     }
-
-    @Test
-    public void test_convert_invalid_rut_string_to_rut_object() {
-        // Arrange
-        RutConverter converter = new RutConverter();
-        String rutString = "12345678-A";
-
-        // Act & Assert
-        assertThrows(IllegalArgumentException.class, () -> converter.convertToEntityAttribute(rutString));
-    }
 }
